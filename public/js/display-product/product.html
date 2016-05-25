@@ -1,0 +1,11 @@
+<div class="row text-center">
+    <div class="col-xs-4 col-lg-2 col-md-3 product-div" ng-class="{'added-item': product.blnItemAdded}" ng-repeat="product in arrProducts track by $index">
+        <p>{{ product.strProductName }}</p>
+        <a href="{{ product.strBuyURL }}" target="_blank">
+            <img class="product-image" ng-src="{{ product.strLargeImage }}"></img>
+        </a>
+        <button ng-show="blnAddItem && !product.blnItemAdded" class="btn btn-raised btn-info" id="add-button" ng-click="addItem(product)">Add Item</button>
+        <button ng-show="!blnAddItem || product.blnItemAdded" class="btn btn-raised btn-info" id="add-button" ng-click="removeItem(product)">Remove Item</button>
+        <p>{{ product.dblProductSalePrice | currency }}</p>
+    </div>
+</div>

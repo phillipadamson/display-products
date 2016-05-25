@@ -1,0 +1,19 @@
+.product-div {
+    border: 1px solid $brand-primary;
+    border-radius: 5px;
+    height: 500px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: $white;
+    box-shadow: 19px -5px 57px -9px #949DB2;;
+}
+.product-image {
+  height: 300px;
+}
+.added-item {
+  border: 4px solid $yellow;
+  color: $yellow;
+}
+#add-button:hover {
+    box-shadow: 5px 5px 5px 0 #949DB2;
+}

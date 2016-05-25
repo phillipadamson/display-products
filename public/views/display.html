@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row search-form">
+        <div class="col-xs-12 offset6">
+            <form class="form-inline">
+                <div class="form-group label-floating is-empty">
+                    <label class="control-label">What product?</label>
+                    <input type="text" class="form-control" ng-model="strSearch">
+                    <span class="material-input"></span>
+                </div>
+                <button type="submit" class="btn btn-raised btn-info" ng-click="getProducts()">Search</button>
+            </form>
+        </div>
+    </div>
+    <product-display add-item="true" products="products"></product-display>
+</div>
