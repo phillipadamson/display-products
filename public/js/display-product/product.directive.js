@@ -30,6 +30,7 @@ app.directive('productDisplay', ['ProductService', function(ProductService) {
                 ProductService.addWishListProduct(product)
                     .then(function(response) {
                         scope.arrProducts[arrayObjectIndexOf(scope.arrProducts, product.strProductSKU, 'strProductSKU')].blnItemAdded = true;
+                        ProductService.saveSession(scope.arrProducts, 'products');
                         toastr.success('Item has been added to Wishlist.');
                     }, function(response) {
                         toastr.error(response.data, 'Error adding item to Wishlist!');
@@ -41,6 +42,7 @@ app.directive('productDisplay', ['ProductService', function(ProductService) {
                         if (response.n == 1) {
                             if (scope.blnAddItem) {
                                 scope.arrProducts[arrayObjectIndexOf(scope.arrProducts, product.strProductSKU, 'strProductSKU')].blnItemAdded = false;
+                                ProductService.saveSession(scope.arrProducts,'products');
                             } else {
                                 scope.arrProducts.splice(arrayObjectIndexOf(scope.arrProducts, product.strProductSKU, 'strProductSKU'), 1);
                             }

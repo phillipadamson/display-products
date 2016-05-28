@@ -9,10 +9,9 @@ app.service('ProductService', ['$http', function($http) {
             })
             .then(function(response) {
                 return self.checkProducts(response.data);
-
             }, function(response) {
                 return response.statusText;
-            });
+            })
     }
     this.addWishListProduct = function(product) {
         return $http({
@@ -63,5 +62,11 @@ app.service('ProductService', ['$http', function($http) {
                 console.log(arrProducts);
                 return arrProducts;
             });
+    }
+    this.saveSession = function(arrProducts, strKey) {
+        sessionStorage.setItem(strKey, JSON.stringify(arrProducts));
+    }
+    this.getSession = function(strKey) {
+        return JSON.parse(sessionStorage.getItem(strKey));
     }
 }]);
